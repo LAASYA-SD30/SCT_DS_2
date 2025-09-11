@@ -32,8 +32,9 @@ requirements.txt # dependencies
 README.md # project documentation
 .gitignore # ignored files
 
-
 ---
+## Note on Dataset
+The dataset included in this repository is a **sample subset** of the full Amazon Reviews dataset to demonstrate the analysis workflow. The same script can be applied to the complete dataset if available. 
 
 ## 🚀 How to Run
 
