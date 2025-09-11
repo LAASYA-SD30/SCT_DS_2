@@ -1,4 +1,4 @@
-# Amazon Reviews - Full Analysis  
+# Amazon Reviews - Full Analysis
 
 **Task – Amazon Reviews Dataset | Data Science Internship**
 
@@ -17,21 +17,31 @@ Perform Exploratory Data Analysis (EDA) and Sentiment Analysis on the Amazon Rev
 - Dataset: Amazon Reviews CSV
 
 ## Repository Structure
-
 data/ # contains the dataset CSV
 outputs/ # charts, plots, sentiment visualizations
 task2.py # main analysis script
 requirements.txt # dependencies
 README.md # project documentation
 .gitignore # ignored files
+
 ## How to Run
 1. Clone this repository:
-   ```bash
-   git clone https://github.com/LAASYA-SD30/SCT_DS_2.git
+```bash
+git clone https://github.com/LAASYA-SD30/SCT_DS_2.git
+
+## Install required packages:
 pip install -r requirements.txt
-3. Run the script:
-   ```bash
-   python task2.py
 
----
+## Run the analysis script:
+python task2.py
 
+## Visualizations
+
+### Grid 1 - Basic Distributions
+![Grid 1](outputs/grid1_basic_distributions.png)
+
+### Grid 2 - Trends & Sentiment
+![Grid 2](outputs/grid2_trends_sentiment.png)
+
+### Grid 3 - Deep Dive & Text
+![Grid 3](outputs/grid3_deep_dive.png)
