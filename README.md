@@ -1,6 +1,6 @@
 # 📊 Amazon Reviews - Full Analysis
 
-**Task:** Amazon Reviews Dataset | Data Science Internship
+**Task 2:** Amazon Reviews Dataset | Data Science Internship
 
 ---
 
