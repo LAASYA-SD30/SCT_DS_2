@@ -1,0 +1,11 @@
+review_id,product_id,product_category,reviewer_id,review_text,rating,review_date,helpful_votes
+1,B001,Electronics,U101,"Great product, works perfectly!",5,2023-01-05,10
+2,B002,Books,U102,"Interesting book, well written.",4,2023-01-06,5
+3,B001,Electronics,U103,Battery life could be better.,3,2023-01-07,3
+4,B003,Home,U104,Really useful for my kitchen.,5,2023-01-08,8
+5,B004,Clothing,U105,The fabric quality is excellent.,5,2023-01-09,12
+6,B002,Books,U106,"Not as expected, story was boring.",2,2023-02-01,1
+7,B003,Home,U107,Good value for the price.,4,2023-02-05,4
+8,B001,Electronics,U108,Very durable and easy to use.,5,2023-02-10,6
+9,B004,Clothing,U109,"Size was too small, disappointed.",2,2023-02-15,0
+10,B002,Books,U110,Loved the writing style and story.,5,2023-02-20,9
