@@ -12,7 +12,7 @@ import re
 # ===============================
 # Load Dataset
 # ===============================
-file_path = (r"C:\Users\laasy\OneDrive\Desktop\amazon_reviews.csv")
+file_path = "data/amazon_reviews.csv"
 df = pd.read_csv(file_path, parse_dates=["review_date"])
 
 # ===============================
@@ -33,6 +33,7 @@ def get_sentiment(text):
         return "Negative"
     else:
         return "Neutral"
+
 df["sentiment"] = df["review_text"].apply(get_sentiment)
 
 # ===============================
@@ -54,8 +55,8 @@ axes[1,0].tick_params(axis="x", rotation=45)
 sns.boxplot(x="rating", y="helpful_votes", data=df, palette="coolwarm", ax=axes[1,1])
 axes[1,1].set_title("Helpful Votes by Rating")
 
-plt.subplots_adjust(left=0.1, right=0.9, top=0.88, bottom=0.1, wspace=0.3, hspace=0.4)
 plt.tight_layout()
+plt.savefig('outputs/grid1_basic_distributions.png')
 plt.show()
 
 # ===============================
@@ -78,8 +79,8 @@ axes[1,0].set_title("Sentiment Distribution")
 sns.boxplot(x="sentiment", y="rating", data=df, palette="coolwarm", ax=axes[1,1])
 axes[1,1].set_title("Ratings by Sentiment")
 
-plt.subplots_adjust(left=0.1, right=0.9, top=0.88, bottom=0.1, wspace=0.3, hspace=0.4)
 plt.tight_layout()
+plt.savefig('outputs/grid2_trends_sentiment.png')
 plt.show()
 
 # ===============================
@@ -88,26 +89,23 @@ plt.show()
 fig, axes = plt.subplots(2, 2, figsize=(9, 6))
 fig.suptitle("Amazon Reviews - Grid 3", fontsize=14, x=0.5, ha="center")
 
-# Sentiment across product categories
 sns.countplot(x="product_category", hue="sentiment", data=df, palette="viridis", ax=axes[0,0])
 axes[0,0].set_title("Sentiment Across Categories")
 axes[0,0].tick_params(axis="x", rotation=45)
 
-# Monthly sentiment trend
 monthly_sentiment = df.groupby(["month", "sentiment"]).size().unstack().fillna(0)
 monthly_sentiment.plot(kind="line", marker="o", ax=axes[0,1])
 axes[0,1].set_title("Monthly Sentiment Trend")
 axes[0,1].set_ylabel("Review Count")
 
-# Correlation heatmap
 corr = df[["rating", "helpful_votes", "review_length"]].corr()
 sns.heatmap(corr, annot=True, cmap="coolwarm", fmt=".2f", ax=axes[1,0])
 axes[1,0].set_title("Correlation Heatmap")
 
-#  New Visualization: Top 10 Most Common Words
+# Top 10 Most Common Words
 def tokenize(text):
     text = text.lower()
-    text = re.sub(r"[^a-z\s]", "", text)  # keep only letters
+    text = re.sub(r"[^a-z\s]", "", text)
     return text.split()
 
 all_words = []
@@ -120,6 +118,6 @@ words, counts = zip(*word_counts)
 sns.barplot(x=list(counts), y=list(words), palette="magma", ax=axes[1,1])
 axes[1,1].set_title("Top 10 Most Common Words in Reviews")
 
-plt.subplots_adjust(left=0.1, right=0.9, top=0.88, bottom=0.1, wspace=0.3, hspace=0.4)
 plt.tight_layout()
+plt.savefig('outputs/grid3_deep_dive.png')
 plt.show()
